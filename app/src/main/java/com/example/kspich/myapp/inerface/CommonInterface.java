@@ -1,4 +1,4 @@
-package com.example.kspich.myapp;
+package com.example.kspich.myapp.inerface;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -6,8 +6,13 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.support.v7.widget.ListViewCompat;
+import android.text.StaticLayout;
+import android.text.TextPaint;
+import android.util.AttributeSet;
+import android.view.SurfaceView;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -19,35 +24,42 @@ import com.example.kspich.myapp.game.obj.Player;
  * Created by kspich on 22.04.2018.
  */
 
-public class CommonInterface extends View {
+public class CommonInterface extends SurfaceView {
 
     String gameInfo = Common_act.act.p.name+" xp: "+Action.p.exp;
+    String curSit = Common_act.CurrentSituation.text;
     int fontSize = 32;
-    public TextView textView = new TextView(getContext());
 
-    public CommonInterface (Context context){
+    Paint p = new Paint();
+    Paint p2 = new Paint();
+
+    public CommonInterface(Context context) {
         super(context);
+    }
+
+    public CommonInterface(Context context, AttributeSet attrs) {
+        super(context, attrs);
+    }
+
+    public CommonInterface(Context context, AttributeSet attrs, int defStyle) {
+        super(context, attrs, defStyle);
     }
 
     @Override
     public void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         canvas.drawColor(Color.BLACK);
-        Paint p = new Paint();
         p.setColor (Color.RED);
         p.setTextSize(fontSize);
         p.setStyle(Paint.Style.STROKE);
         canvas.drawText(gameInfo, 10,80,p);
-        p.setColor (Color.LTGRAY);
-        canvas.drawRect (10, 95, 260, 400,p);
-        canvas.drawRect (270, 95, 710, 400,p);
-        canvas.drawRect (10, 410, 710, 1070,p);
+        p2.setColor (Color.LTGRAY);
+        p2.setStyle(Paint.Style.STROKE);
+        canvas.drawRect (10, 95, 260, 400,p2);
+        canvas.drawRect (270, 95, 710, 400,p2);
+        canvas.drawRect (10, 410, 710, 1070,p2);
 
-        textView.setTextSize(28);
-        textView.setWidth(650);
-        textView.setHeight(690);
-        textView.setY(385);
-        textView.setX(15);
-        textView.setText(Common_act.CurrentSituation.toString());
+        canvas.drawText (curSit,15,440,p);
+
     }
 }
