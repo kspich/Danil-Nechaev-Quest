@@ -24,7 +24,7 @@ import com.example.kspich.myapp.game.obj.Player;
  * Created by kspich on 22.04.2018.
  */
 
-public class CommonInterface extends SurfaceView {
+public class CommonInterface extends View {
 
     String gameInfo = Common_act.act.p.name+" xp: "+Action.p.exp;
     String curSit = Common_act.CurrentSituation.text;
@@ -57,9 +57,9 @@ public class CommonInterface extends SurfaceView {
         p2.setStyle(Paint.Style.STROKE);
         canvas.drawRect (10, 95, 260, 400,p2);
         canvas.drawRect (270, 95, 710, 400,p2);
-        canvas.drawRect (10, 410, 710, 1070,p2);
+        canvas.drawRect (10, 410, 710,  1070,p2);
 
-        canvas.drawText (curSit,15,440,p);
+        //canvas.drawText (curSit,15,440,p);   тут текущи квест
 
     }
 }

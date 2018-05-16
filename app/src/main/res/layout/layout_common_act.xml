@@ -14,13 +14,44 @@
         android:layout_height="fill_parent" >
 
         <Button
-            android:id="@+id/restartButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:text="тут кнопка да но кроме нее ничего" />
+            android:id="@+id/firstbutton"
+            android:onClick="acBclick"
+            android:layout_width="350px"
+            android:layout_height="100px"
+            android:layout_marginTop="1070px"
+            android:layout_marginLeft="10px"
+            android:text="нет действия" />
+        <Button
+            android:id="@+id/secondbutton"
+            android:layout_width="350px"
+            android:layout_height="100px"
+            android:layout_marginTop="1070px"
+            android:layout_marginLeft="360px"
+            android:text="нет действия" />
+        <Button
+            android:id="@+id/anotherbutton"
+            android:layout_width="350px"
+            android:layout_height="100px"
+            android:layout_marginTop="1162px"
+            android:layout_marginLeft="360px"
+            android:text="нет действия" />
+        <Button
+            android:id="@+id/thatbutton"
+            android:layout_width="350px"
+            android:layout_height="100px"
+            android:layout_marginTop="1162px"
+            android:layout_marginLeft="10px"
+            android:text="нет действия" />
 
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="700px"
+            android:layout_height="660px"
+            android:layout_marginTop="407px"
+            android:layout_marginLeft="19px"
+            android:text=""
+            android:textColor="#ff0000"
+            android:textSize="32px"/>
     </RelativeLayout>
 
 </FrameLayout>

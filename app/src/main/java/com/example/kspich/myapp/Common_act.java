@@ -3,6 +3,7 @@ package com.example.kspich.myapp;
 import android.content.pm.ActivityInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.TextView;
@@ -21,9 +22,15 @@ public class Common_act extends AppCompatActivity {
         setContentView(R.layout.layout_common_act);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
+        TextView log = (TextView) findViewById(R.id.textView2);
+        Button acceptButton = (Button) findViewById(R.id.firstbutton);
+        acceptButton.setOnClickListener((View.OnClickListener) this);
     }
 
     public static Action act = new Action();
     public static Quest CurrentSituation = new Quest("Первый квест");
 
+    public void acBclick(View view) {
+        //log.setText(CurrentSituation.text+"");
+    }
 }
