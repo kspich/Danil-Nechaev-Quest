@@ -15,6 +15,10 @@ import com.example.kspich.myapp.game.quest.Situation;
 
 public class Common_act extends AppCompatActivity {
 
+    public Common_act(){
+
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,15 +26,25 @@ public class Common_act extends AppCompatActivity {
         setContentView(R.layout.layout_common_act);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
-        TextView log = (TextView) findViewById(R.id.textView2);
+        final TextView log = (TextView) findViewById(R.id.textView2);
         Button acceptButton = (Button) findViewById(R.id.firstbutton);
-        acceptButton.setOnClickListener((View.OnClickListener) this);
+        log.setText(CurrentSituation.text+"");
+
+        acceptButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                switch(view.getId()) {
+                    case R.id.firstbutton:{}
+                    case R.id.secondbutton:{}
+                    case R.id.anotherbutton:{}
+                    case R.id.thatbutton:{}
+                }
+            }
+        });
+
     }
 
     public static Action act = new Action();
-    public static Quest CurrentSituation = new Quest("Первый квест");
+    public static Quest CurrentSituation = new Quest("Ситуация 1: Удивительный текст в логе. Интересно, переносится ли он...");
 
-    public void acBclick(View view) {
-        //log.setText(CurrentSituation.text+"");
-    }
 }

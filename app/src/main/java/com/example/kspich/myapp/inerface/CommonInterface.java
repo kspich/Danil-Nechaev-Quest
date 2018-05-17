@@ -59,7 +59,9 @@ public class CommonInterface extends View {
         canvas.drawRect (270, 95, 710, 400,p2);
         canvas.drawRect (10, 410, 710,  1070,p2);
 
-        //canvas.drawText (curSit,15,440,p);   тут текущи квест
+        //canvas.drawText (curSit,15,440,p);
 
+        if (Common_act.act.p.alive = true) {canvas.drawText("alive.png", 12, 122, p);}
+        else {canvas.drawText("rip.png", 12, 122, p);}
     }
 }

@@ -48,7 +48,7 @@
             android:layout_width="700px"
             android:layout_height="660px"
             android:layout_marginTop="407px"
-            android:layout_marginLeft="19px"
+            android:layout_marginLeft="17px"
             android:text=""
             android:textColor="#ff0000"
             android:textSize="32px"/>
