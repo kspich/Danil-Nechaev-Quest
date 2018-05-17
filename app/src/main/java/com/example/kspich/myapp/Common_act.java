@@ -34,10 +34,10 @@ public class Common_act extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 switch(view.getId()) {
-                    case R.id.firstbutton:{}
-                    case R.id.secondbutton:{}
-                    case R.id.anotherbutton:{}
-                    case R.id.thatbutton:{}
+                    case R.id.firstbutton:{log.setText("Ситуация "+count+" :Самое удивительное, что текст меняется");count++;break;}
+                    case R.id.secondbutton:{log.setText("Ситуация "+count+" :Еще удивительнее то, что кнопки работают");count++;break;}
+                    case R.id.anotherbutton:{break;}
+                    case R.id.thatbutton:{break;}
                 }
             }
         });
@@ -46,5 +46,5 @@ public class Common_act extends AppCompatActivity {
 
     public static Action act = new Action();
     public static Quest CurrentSituation = new Quest("Ситуация 1: Удивительный текст в логе. Интересно, переносится ли он...");
-
+    public int count = 2;
 }
