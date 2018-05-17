@@ -14,6 +14,6 @@ import java.util.LinkedList;
 public class Action {
     public static Player p;
     public Action(){
-        p = new Player("Dortonkon");
+        p = new Player("Dortonkon", 10);
     }
 }

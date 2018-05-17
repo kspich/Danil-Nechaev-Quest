@@ -26,7 +26,7 @@ import com.example.kspich.myapp.game.obj.Player;
 
 public class CommonInterface extends View {
 
-    String gameInfo = Common_act.act.p.name+" xp: "+Action.p.exp;
+    String gameInfo = Common_act.act.p.name+" xp: "+Common_act.act.p.exp;
     String curSit = Common_act.CurrentSituation.text;
     int fontSize = 32;
 

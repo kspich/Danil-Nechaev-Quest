@@ -33,12 +33,9 @@ public class Common_act extends AppCompatActivity {
         acceptButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                switch(view.getId()) {
-                    case R.id.firstbutton:{log.setText("Ситуация "+count+" :Самое удивительное, что текст меняется");count++;break;}
-                    case R.id.secondbutton:{log.setText("Ситуация "+count+" :Еще удивительнее то, что кнопки работают");count++;break;}
-                    case R.id.anotherbutton:{break;}
-                    case R.id.thatbutton:{break;}
-                }
+                log.setText("Ситуация "+count+" :Самое удивительное, что текст меняется, и опыт игрока в View не обновляется, хотя по онклику с ним такое происходит "+act.p.exp+".");
+                count++;
+                act.p.exp++;
             }
         });
 

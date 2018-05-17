@@ -7,7 +7,7 @@ package com.example.kspich.myapp.game.obj;
 public class Player extends Entity {
     public item inventory[] = new item[10];
 
-    public Player(String name){
+    public Player(String name, int exp){
 
         super(name);
         this.name = name;
@@ -23,6 +23,6 @@ public class Player extends Entity {
         majRes=0;
 
         alive=true;
-
+        this.exp = exp;
     }
 }
