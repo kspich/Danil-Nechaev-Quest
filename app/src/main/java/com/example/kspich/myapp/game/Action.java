@@ -14,7 +14,7 @@ import java.util.LinkedList;
 public class Action {
     public static Player p;
     public static Quest[] Situations = new Quest[10];
-    public static Quest CurrentSituation = new Quest("Ты просыпаешься в полупустой комнате от сильного шума. Тебе хочется есть. ", Situations[1],null,"Вокруг слишком много звуков, чтобы спать, у тебя не выйдет. ", null,"Оглянуться", "Попробовать уснуть","","");
+    public static Quest CurrentSituation = new Quest("Ты просыпаешься в полупустой комнате от сильного шума. Тебе еще хочется спать. ", Situations[1],null,"Вокруг слишком много звуков, чтобы спать, у тебя не выйдет. ", null,"Оглянуться", "Попробовать уснуть","","");
     public Action(){
         p = new Player("Dortonkon", 10);
         Situations[0] = CurrentSituation;

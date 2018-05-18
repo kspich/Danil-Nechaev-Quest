@@ -35,16 +35,17 @@ public class Common_act extends AppCompatActivity {
         final Button button3 = (Button) findViewById(R.id.anotherbutton);
         final Button button4 = (Button) findViewById(R.id.thatbutton);
 
+        final TextView clickerCounter = (TextView) findViewById(R.id.textViewSpecial);
+
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if ((act.CurrentSituation.b1text.equals("Лечь на кровать"))&&(isTapped == true)){
+                if ((act.CurrentSituation.b1text.equals("Лечь на кровать"))&&(isTapped >2 )){
 
                 }else
-                {i++;
-                act.CurrentSituation.firstAction(i);}
+                {i++; act.CurrentSituation.firstAction(i);}
 
-                isTapped = true;
+                if (act.CurrentSituation == act.Situations[1]){isTapped++;}
             }
         });
 
@@ -52,6 +53,9 @@ public class Common_act extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 act.CurrentSituation.secondAction();
+                if (act.CurrentSituation.b2text.equals("Ждать")){
+                    j++;
+                }
             }
         });
 
@@ -75,7 +79,7 @@ public class Common_act extends AppCompatActivity {
             public void run() {
                 try {
                     while (!isInterrupted()) {
-                        Thread.sleep(100);
+                        Thread.sleep(50);
                         runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
@@ -94,7 +98,15 @@ public class Common_act extends AppCompatActivity {
                                 if (act.CurrentSituation.b4text.equals("")) {button4.setVisibility(View.INVISIBLE);}
                                 else {button4.setText(act.CurrentSituation.b3text+"");}
 
-                                if (act.CurrentSituation.b2text.equals("Ждать")){button2.setX(185);button2.setY(1120);}
+                                if (act.CurrentSituation.b2text.equals("Ждать")){
+                                    button2.setX(185);button2.setY(1120);
+                                    if (j>0){clickerCounter.setText(j+"");}
+                                }
+
+                                if (j>=7){
+                                    clickerCounter.setVisibility(View.INVISIBLE);
+
+                                }
                             }
                         });
                     }
@@ -110,5 +122,6 @@ public class Common_act extends AppCompatActivity {
     public static Action act = new Action();
     public int i=0;
     public int j = 0;
-    public boolean isTapped = false;
+    public int anotherCounter = 2;
+    public int isTapped = 1;
 }

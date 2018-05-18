@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/FrameLayout1"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent" >
@@ -72,6 +73,27 @@
             android:text=""
             android:textColor="#ff0000"
             android:textSize="32px"/>
+
+        <TextView
+            android:id="@+id/textViewSpecial"
+            android:layout_width="116dp"
+            android:layout_height="58dp"
+            android:layout_marginLeft="374px"
+            android:layout_marginTop="185px"
+            android:text=""
+            android:textColor="#ff0000"
+            android:textSize="100px"
+            android:textAlignment="center"/>
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="700px"
+            android:layout_height="650px"
+            android:layout_marginLeft="10px"
+            android:layout_marginTop="8px"
+            android:layout_alignTop="@+id/textView2"
+            app:srcCompat="@drawable/sample0"
+            android:visibility="invisible"/>
     </RelativeLayout>
 
 </FrameLayout>
