@@ -111,10 +111,7 @@ public class Entity {
     }
 
     public void startSituation(Situation sit, Entity ent){
-        switch (sit.sitID) {
-            case 0: sitText = ent.name + sit.text;
-            case 1: sitText = ent.name + sit.text;
-        }
+
     }
 
 }

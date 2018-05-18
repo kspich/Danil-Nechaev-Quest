@@ -12,6 +12,7 @@ import com.example.kspich.myapp.game.Action;
 import com.example.kspich.myapp.game.obj.Player;
 import com.example.kspich.myapp.game.quest.Quest;
 import com.example.kspich.myapp.game.quest.Situation;
+import com.example.kspich.myapp.inerface.CommonInterface;
 
 public class Common_act extends AppCompatActivity {
 
@@ -27,21 +28,87 @@ public class Common_act extends AppCompatActivity {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         final TextView log = (TextView) findViewById(R.id.textView2);
-        Button acceptButton = (Button) findViewById(R.id.firstbutton);
-        log.setText(CurrentSituation.text+"");
+        final TextView alivelog = (TextView) findViewById(R.id.textView3);
+        final TextView playerInfo = (TextView) findViewById(R.id.textView4);
+        final Button button1 = (Button) findViewById(R.id.firstbutton);
+        final Button button2 = (Button) findViewById(R.id.secondbutton);
+        final Button button3 = (Button) findViewById(R.id.anotherbutton);
+        final Button button4 = (Button) findViewById(R.id.thatbutton);
 
-        acceptButton.setOnClickListener(new View.OnClickListener() {
+        button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                log.setText("Ситуация "+count+" :Самое удивительное, что текст меняется, и опыт игрока в View не обновляется, хотя по онклику с ним такое происходит "+act.p.exp+".");
-                count++;
-                act.p.exp++;
+                if ((act.CurrentSituation.b1text.equals("Лечь на кровать"))&&(isTapped == true)){
+
+                }else
+                {i++;
+                act.CurrentSituation.firstAction(i);}
+
+                isTapped = true;
             }
         });
+
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                act.CurrentSituation.secondAction();
+            }
+        });
+
+        button3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
+        button4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
+        Thread t = new Thread() {
+
+            @Override
+            public void run() {
+                try {
+                    while (!isInterrupted()) {
+                        Thread.sleep(100);
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                log.setText(act.CurrentSituation.text);
+                                if (Common_act.act.p.alive = true) {alivelog.setText("alive.png");}
+                                else {alivelog.setText("rip.png");}
+                                playerInfo.setText(Common_act.act.p.name+" xp: "+Common_act.act.p.exp);
+                                button1.setText(act.CurrentSituation.b1text+"");
+                                button2.setText(act.CurrentSituation.b2text+"");
+                                if (act.CurrentSituation.b1text.equals("")) {button1.setVisibility(View.INVISIBLE);}
+                                else {button3.setText(act.CurrentSituation.b3text+"");}
+                                if (act.CurrentSituation.b2text.equals("")) {button2.setVisibility(View.INVISIBLE);}
+                                else {button3.setText(act.CurrentSituation.b3text+"");}
+                                if (act.CurrentSituation.b3text.equals("")) {button3.setVisibility(View.INVISIBLE);}
+                                else {button3.setText(act.CurrentSituation.b3text+"");}
+                                if (act.CurrentSituation.b4text.equals("")) {button4.setVisibility(View.INVISIBLE);}
+                                else {button4.setText(act.CurrentSituation.b3text+"");}
+
+                                if (act.CurrentSituation.b2text.equals("Ждать")){button2.setX(185);button2.setY(1120);}
+                            }
+                        });
+                    }
+                } catch (InterruptedException e) {
+                }
+            }
+        };
+
+        t.start();
 
     }
 
     public static Action act = new Action();
-    public static Quest CurrentSituation = new Quest("Ситуация 1: Удивительный текст в логе. Интересно, переносится ли он...");
-    public int count = 2;
+    public int i=0;
+    public int j = 0;
+    public boolean isTapped = false;
 }

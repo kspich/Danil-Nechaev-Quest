@@ -9,13 +9,14 @@ import com.example.kspich.myapp.game.obj.Player;
  */
 
 public class Situation {
-    String b1text, b2text, b3text, b4text;
+
+    public String b1text, b2text, b3text, b4text;
     public int sitID;
-    public String text;
+    public String text,text2,text3;
 
     public Situation(){}
 
-    public Situation (int sitID, Player p, Entity e, String b1text, String b2text, String b3text, String b4text){
+    public Situation (int sitID, Entity p, Entity e, String b1text, String b2text, String b3text, String b4text){
         this.sitID = sitID;
         switch (sitID){
             case 2:{
@@ -30,7 +31,7 @@ public class Situation {
         }
     }
 
-    public Situation (int sitID, Player p){
+    public Situation (int sitID, Entity p){
         this.sitID = sitID;
         switch (sitID){
             case 0:{
@@ -42,8 +43,15 @@ public class Situation {
         }
     }
 
-    public void firstAction(Player p, Entity e) {
-
+    public void firstAction(Entity p, Entity e) {
+        switch (sitID){
+            case 0:{}
+            case 1:{}
+            case 2:{}
+            case 3:{}
+            case 4:{}
+            case 5:{}
+        }
     }
 
 }

@@ -26,8 +26,6 @@ import com.example.kspich.myapp.game.obj.Player;
 
 public class CommonInterface extends View {
 
-    String gameInfo = Common_act.act.p.name+" xp: "+Common_act.act.p.exp;
-    String curSit = Common_act.CurrentSituation.text;
     int fontSize = 32;
 
     Paint p = new Paint();
@@ -52,16 +50,11 @@ public class CommonInterface extends View {
         p.setColor (Color.RED);
         p.setTextSize(fontSize);
         p.setStyle(Paint.Style.STROKE);
-        canvas.drawText(gameInfo, 10,80,p);
         p2.setColor (Color.LTGRAY);
         p2.setStyle(Paint.Style.STROKE);
         canvas.drawRect (10, 95, 260, 400,p2);
         canvas.drawRect (270, 95, 710, 400,p2);
         canvas.drawRect (10, 410, 710,  1070,p2);
 
-        //canvas.drawText (curSit,15,440,p);
-
-        if (Common_act.act.p.alive = true) {canvas.drawText("alive.png", 12, 122, p);}
-        else {canvas.drawText("rip.png", 12, 122, p);}
     }
 }
