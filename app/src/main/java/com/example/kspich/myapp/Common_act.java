@@ -110,13 +110,13 @@ public class Common_act extends AppCompatActivity {
                                     clickerCounter.setVisibility(View.INVISIBLE);
                                     act.p.alive = false;
                                     alivelog.setText("rip.png");
-                                    if ((anotherCounter<=100)&&(anotherCounter>0)){
+                                    if ((anotherCounter<=1)&&(anotherCounter>0)){
                                         screamer.setVisibility(View.VISIBLE);
-                                    }
+                                    } else{screamer.setVisibility(View.INVISIBLE);}
                                 }
 
                                 anotherCounter++;
-                                if (anotherCounter>=200){
+                                if (anotherCounter>=2){
                                     anotherCounter=0;
                                 }
                             }
