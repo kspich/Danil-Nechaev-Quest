@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.kspich.myapp.game.Action;
@@ -34,6 +35,7 @@ public class Common_act extends AppCompatActivity {
         final Button button2 = (Button) findViewById(R.id.secondbutton);
         final Button button3 = (Button) findViewById(R.id.anotherbutton);
         final Button button4 = (Button) findViewById(R.id.thatbutton);
+        final ImageView screamer = (ImageView) findViewById(R.id.imageView);
 
         final TextView clickerCounter = (TextView) findViewById(R.id.textViewSpecial);
 
@@ -84,7 +86,7 @@ public class Common_act extends AppCompatActivity {
                             @Override
                             public void run() {
                                 log.setText(act.CurrentSituation.text);
-                                if (Common_act.act.p.alive = true) {alivelog.setText("alive.png");}
+                                if (act.p.alive = true) {alivelog.setText("alive.png");}
                                 else {alivelog.setText("rip.png");}
                                 playerInfo.setText(Common_act.act.p.name+" xp: "+Common_act.act.p.exp);
                                 button1.setText(act.CurrentSituation.b1text+"");
@@ -100,12 +102,22 @@ public class Common_act extends AppCompatActivity {
 
                                 if (act.CurrentSituation.b2text.equals("Ждать")){
                                     button2.setX(185);button2.setY(1120);
-                                    if (j>0){clickerCounter.setText(j+"");}
+                                    if ((j>0)&&(j<=7)){clickerCounter.setText(j+"");
+                                    log.setText("Ты слышишь приближающиеся шаги...");}
                                 }
 
                                 if (j>=7){
                                     clickerCounter.setVisibility(View.INVISIBLE);
+                                    act.p.alive = false;
+                                    alivelog.setText("rip.png");
+                                    if ((anotherCounter<=100)&&(anotherCounter>0)){
+                                        screamer.setVisibility(View.VISIBLE);
+                                    }
+                                }
 
+                                anotherCounter++;
+                                if (anotherCounter>=200){
+                                    anotherCounter=0;
                                 }
                             }
                         });
@@ -122,6 +134,6 @@ public class Common_act extends AppCompatActivity {
     public static Action act = new Action();
     public int i=0;
     public int j = 0;
-    public int anotherCounter = 2;
+    public int anotherCounter = 0;
     public int isTapped = 1;
 }
