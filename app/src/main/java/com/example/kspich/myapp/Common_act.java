@@ -81,7 +81,7 @@ public class Common_act extends AppCompatActivity {
             public void run() {
                 try {
                     while (!isInterrupted()) {
-                        Thread.sleep(50);
+                        Thread.sleep(40);
                         runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
@@ -110,6 +110,8 @@ public class Common_act extends AppCompatActivity {
                                     clickerCounter.setVisibility(View.INVISIBLE);
                                     act.p.alive = false;
                                     alivelog.setText("rip.png");
+                                    log.setText("Дверь внезапно открылась, в комнату вошел Даня Нечаев.");
+                                    button2.setVisibility(View.INVISIBLE);
                                     if ((anotherCounter<=1)&&(anotherCounter>0)){
                                         screamer.setVisibility(View.VISIBLE);
                                     } else{screamer.setVisibility(View.INVISIBLE);}
@@ -136,4 +138,5 @@ public class Common_act extends AppCompatActivity {
     public int j = 0;
     public int anotherCounter = 0;
     public int isTapped = 1;
+
 }
